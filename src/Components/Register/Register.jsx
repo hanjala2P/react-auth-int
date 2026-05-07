@@ -1,24 +1,43 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { Link } from 'react-router';
 import { auth } from '../../Firebase/firebase.init';
+import { use } from 'react';
+import { AuthContext } from '../../Context/AuthContext/AuthContext';
 
 
 
 const Register = () => {
- 
-    const handleRegsiter = (e)=>{
-        e.preventDefault();
-        const email =e.target.email.value;
-        const password =e.target.password.value;
-        console.log(email,password);
+    const {createUser} = use(AuthContext);
 
-        createUserWithEmailAndPassword(auth , email, password )
-        .then(result =>{
-            console.log(result)
-        })
-        .catch(error => {console.log(error)})
+  const handleRegister =(event)=>{
 
-    }
+    event.preventDefault();
+
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+
+    createUser(email,password)
+    .then(result=>{
+      console.log(result.user);
+    })
+    .catch(error =>{
+      console.log(error);
+    })
+   
+  }
+    // const handleRegsiter = (e)=>{
+    //     e.preventDefault();
+    //     const email =e.target.email.value;
+    //     const password =e.target.password.value;
+    //     console.log(email,password);
+
+    //     createUserWithEmailAndPassword(auth , email, password )
+    //     .then(result =>{
+    //         console.log(result)
+    //     })
+    //     .catch(error => {console.log(error)})
+
+    // }
     return (
         <div>
             <div className="hero bg-base-200 min-h-screen">
@@ -29,7 +48,7 @@ const Register = () => {
     </div>
     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
       <div className="card-body">
-        <form onSubmit={handleRegsiter}>
+        <form onSubmit={handleRegister}>
                     <fieldset className="fieldset">
           <label className="label">Name</label>
           <input name='name' type="text" className="input" placeholder="Name" />
