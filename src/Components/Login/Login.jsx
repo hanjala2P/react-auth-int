@@ -11,7 +11,9 @@ const Login = () => {
     const password = event.target.password.value;
 
     signInUser(email,password)
-    .then(result =>{console.log(result.user)})
+    .then(result =>{console.log(result.user)
+      event.target.reset();
+    })
     .catch(error => console.log(error))
     
   }

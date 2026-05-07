@@ -3,6 +3,10 @@ import Home from "../Components/Home";
 import Register from "../Components/Register/Register";
 import Login from "../Components/Login/Login";
 import Hero from "../Components/Hero/Hero";
+import Orders from "../Components/Orders/Orders";
+import Profile from "../Components/Profile/Profile";
+import Privateroutes from "./Privateroutes";
+import Dashboard from "../Components/Dashboard/Dashboard";
 
 const router = createBrowserRouter([
     {
@@ -16,13 +20,31 @@ const router = createBrowserRouter([
 
             },
             {
-                path:'register',
+                path:'/register',
                 Component:Register
             },
             {
-                path:'login',
+                path:'/login',
                 Component:Login
-            }
+            },
+            {
+                path:'/orders',
+               element:<Privateroutes>
+                <Orders></Orders>
+               </Privateroutes>
+            },
+            {
+                path:'/profile',
+                element:<Privateroutes>
+                <Profile></Profile>
+               </Privateroutes>
+            },
+            {
+                path:'/dashboard',
+                element:<Privateroutes>
+                <Dashboard></Dashboard>
+               </Privateroutes>
+            },
         ]
 
     }
