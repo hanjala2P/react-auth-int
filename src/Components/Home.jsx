@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Outlet } from 'react-router';
 import Nav from './Nav';
-import Footer from './Footer';
+import Footer from './Footer';import { AuthContext } from '../Context/AuthContext/AuthContext';
+;
 
 const Home = () => {
+    const authInfo = use(AuthContext);
+    console.log(authInfo);
     return (
         <div className="flex flex-col min-h-screen">
             <Nav />
