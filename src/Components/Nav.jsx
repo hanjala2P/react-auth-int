@@ -43,7 +43,7 @@ const Nav = () => {
         {links}
       </ul>
     </div>
-    <p className="btn btn-ghost text-xl">daisyUI</p>
+    <p className="btn btn-ghost text-xl text-purple-600">Tech UI</p>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
